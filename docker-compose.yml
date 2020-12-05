@@ -1,0 +1,13 @@
+version: '3'
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sancas/jupyter-ml
+    ports:
+      - "8888:8888"
+    command: "start.sh jupyter notebook"
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - ${DATASETS_DIR}:/home/jovyan/datasets
